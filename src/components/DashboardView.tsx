@@ -16,10 +16,10 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ data, loading, onN
   if (!data) return <div className="p-12 text-center text-sm text-slate-500">Data persediaan belum tersedia.</div>;
 
   const cards = [
-    { label: 'Jenis Barang', value: data.totalProducts.toLocaleString('id-ID'), detail: 'Barang terdaftar',
-    { label: 'Total Stok', value: formatStock(data.totalUnits), detail: 'Jumlah seluruh satuan',
+    { label: 'Jenis Barang', value: data.totalProducts.toLocaleString('id-ID'), detail: 'Barang terdaftar' },
+    { label: 'Total Stok', value: formatStock(data.totalUnits), detail: 'Jumlah seluruh satuan'" },
     { label: 'Stok Menipis', value: data.lowStockCount.toLocaleString('id-ID'), detail: 'Perlu segera diperiksa', icon: AlertTriangle, color: 'text-amber-700 bg-amber-50' },
-    { label: 'Stok Habis', value: data.outOfStockCount.toLocaleString('id-ID'), detail: 'Stok kosong',
+    { label: 'Stok Habis', value: data.outOfStockCount.toLocaleString('id-ID'), detail: 'Stok kosong' },
   ];
 
   return <div className="max-w-7xl space-y-6">

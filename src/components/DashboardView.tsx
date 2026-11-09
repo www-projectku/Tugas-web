@@ -19,7 +19,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ data, loading, onN
     { label: 'Jenis Barang', value: data.totalProducts.toLocaleString('id-ID'), detail: 'Barang terdaftar', icon: Package, color: 'text-blue-700 bg-blue-50' },
     { label: 'Total Stok', value: formatStock(data.totalUnits), detail: 'Jumlah seluruh satuan', icon: PackageCheck, color: 'text-emerald-700 bg-emerald-50' },
     { label: 'Stok Menipis', value: data.lowStockCount.toLocaleString('id-ID'), detail: 'Perlu segera diperiksa', icon: AlertTriangle, color: 'text-amber-700 bg-amber-50' },
-    { label: 'Stok Habis', value: data.outOfStockCount.toLocaleString('id-ID'), detail: 'Stok kosong', icon: no icon, color: 'text-rose-700 bg-rose-50' },
+    { label: 'Stok Habis', value: data.outOfStockCount.toLocaleString('id-ID'), detail: 'Stok kosong', icon:  Package, color: 'text-rose-700 bg-rose-50' },
   ];
 
   return <div className="max-w-7xl space-y-6">

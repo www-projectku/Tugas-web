@@ -36,9 +36,31 @@ export const DashboardView: React.FC<DashboardViewProps> = ({ data, loading, onN
 
     <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
       {cards.map((card) => {
-        const Icon = card.icon;
-        return <div key={card.label} className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
-          <div className="flex items-center justify-between"><span className="text-sm font-medium text-slate-500">{card.label}</span><span className={`rounded-lg p-2 ${card.color}`}><Icon className="h-5 w-5"/></span></div>
+        
+return (
+  <div key={card.label} className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+    <div className="flex items-center justify-between">
+      <span className="text-sm font-medium text-slate-500">
+        {card.label}
+      </span>
+
+      {card.icon && (
+        <span className={`rounded-lg p-2 ${card.color}`}>
+          <card.icon className="h-5 w-5" />
+        </span>
+      )}
+    </div>
+
+    <p className="mt-3 text-2xl font-bold text-slate-900">
+      {card.value}
+    </p>
+
+    <p className="mt-1 text-xs text-slate-500">
+      {card.detail}
+    </p>
+  </div>
+);
+
           <p className="mt-3 text-2xl font-bold text-slate-900">{card.value}</p>
           <p className="mt-1 text-xs text-slate-500">{card.detail}</p>
         </div>;

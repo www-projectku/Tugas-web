@@ -240,7 +240,7 @@ export const ReportsView: React.FC<ReportsViewProps> = ({ categories, settings, 
                 <span className="text-xs font-semibold text-slate-600">Dari:</span>
                 <input
                   type="date"
-                  value={startDate}
+                  value={startDate || undefined}
                   onChange={(e) => setStartDate(e.target.value)}
                   className="py-1.5 px-2.5 text-xs rounded border border-slate-300 focus:outline-none focus:ring-1 focus:ring-slate-900"
                 />
@@ -249,7 +249,7 @@ export const ReportsView: React.FC<ReportsViewProps> = ({ categories, settings, 
                 <span className="text-xs font-semibold text-slate-600">Sampai:</span>
                 <input
                   type="date"
-                  value={endDate}
+                  value={endDate || undefined}
                   onChange={(e) => setEndDate(e.target.value)}
                   className="py-1.5 px-2.5 text-xs rounded border border-slate-300 focus:outline-none focus:ring-1 focus:ring-slate-900"
                 />

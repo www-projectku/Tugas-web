@@ -1506,9 +1506,15 @@ apiRouter.get('/reports/stock-in', requireAuth, (req: AuthenticatedRequest, res:
   const endDate = req.query.end_date as string || '2099-12-31';
   const supplierId = req.query.supplier_id as string;
 
-  let txs = data.stock_in_transactions.filter(
-    (t) => t.status === 'completed' && t.transaction_date >= startDate && t.transaction_date <= endDate
+ let txs = data.stock_in_transactions.filter((t) => {
+  const transactionDate = String(t.transaction_date).slice(0, 10);
+
+  return (
+    t.status === 'completed' &&
+    transactionDate >= startDate &&
+    transactionDate <= endDate
   );
+});
 
   if (supplierId && supplierId !== 'all') {
     txs = txs.filter((t) => t.supplier_id === supplierId);
@@ -1556,9 +1562,15 @@ apiRouter.get('/reports/sales', requireAuth, (req: AuthenticatedRequest, res: Re
   const startDate = req.query.start_date as string || '2000-01-01';
   const endDate = req.query.end_date as string || '2099-12-31';
 
-  const txs = data.sales_transactions.filter(
-    (t) => t.status === 'completed' && t.transaction_date >= startDate && t.transaction_date <= endDate
+  const txs = data.sales_transactions.filter((t) => {
+  const transactionDate = String(t.transaction_date).slice(0, 10);
+
+  return (
+    t.status === 'completed' &&
+    transactionDate >= startDate &&
+    transactionDate <= endDate
   );
+});
 
   const flatItems: any[] = [];
   let totalRevenue = 0;
